@@ -2,7 +2,7 @@
 
 **Discover the time you've lived.**
 
-[**→ Open CHRONOS**](YOUR_VERCEL_URL)
+[**→ Open CHRONOS**](https://chronos-mikael.vercel.app/)
 
 CHRONOS is a minimalist interactive web experience that turns your date of birth into a live representation of the time you've lived.
 
