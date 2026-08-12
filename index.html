@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="CHRONOS — Discover the time you've lived."
+    >
+
+    <meta name="theme-color" content="#050505">
+
+    <meta property="og:title" content="CHRONOS — Discover Your Time">
+
+    <meta
+        property="og:description"
+        content="Discover the time you've lived."
+    >
+
+    <title>CHRONOS</title>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+    <main class="app">
+
+        <!-- =====================================================
+             LANDING SCREEN
+             ===================================================== -->
+
+        <section
+            id="landing"
+            class="screen active"
+        >
+
+            <div class="content">
+
+                <p class="eyebrow">
+                    CHRONOS
+                </p>
+
+
+                <h1>
+                    Discover the<br>
+                    time you've lived.
+                </h1>
+
+
+                <p class="description">
+                    Enter your date of birth and discover your life
+                    measured in time.
+                </p>
+
+
+                <!-- Date Input -->
+
+                <div class="input-group">
+
+                    <label for="birthDate">
+                        DATE OF BIRTH
+                    </label>
+
+                    <input
+                        type="text"
+                        id="birthDate"
+                        placeholder="DD / MM / YYYY"
+                        maxlength="14"
+                        inputmode="numeric"
+                        autocomplete="bday"
+                        aria-label="Date of birth"
+                    >
+
+                </div>
+
+
+                <!-- Discover -->
+
+                <button
+                    id="discoverBtn"
+                    type="button"
+                >
+                    DISCOVER
+                </button>
+
+
+                <!-- Error -->
+
+                <p
+                    id="errorMessage"
+                    class="error"
+                    aria-live="polite"
+                ></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESULTS SCREEN
+             ===================================================== -->
+
+        <section
+            id="results"
+            class="screen"
+        >
+
+            <div class="results-content">
+
+                <p class="eyebrow">
+                    CHRONOS
+                </p>
+
+
+                <p class="result-label">
+                    YOUR LIFE IN TIME
+                </p>
+
+
+                <!-- =================================================
+                     PRIMARY STAT
+                     ================================================= -->
+
+                <div class="primary-stat">
+
+                    <span id="daysLived">
+                        0
+                    </span>
+
+                    <span class="unit">
+                        DAYS
+                    </span>
+
+                </div>
+
+
+                <!-- =================================================
+                     EXACT AGE
+                     ================================================= -->
+
+                <p
+                    id="exactAge"
+                    class="exact-age"
+                >
+                    0 YEARS · 0 MONTHS
+                </p>
+
+
+                <!-- =================================================
+                     BIRTH INFORMATION
+                     ================================================= -->
+
+                <div class="birth-info">
+
+                    <p class="birth-label">
+                        BORN ON
+                    </p>
+
+                    <span id="bornOn">
+                        —
+                    </span>
+
+                </div>
+
+
+                <!-- =================================================
+                     LIFE STATISTICS
+                     ================================================= -->
+
+                <div class="statistics">
+
+                    <!-- Years -->
+
+                    <div class="stat">
+
+                        <span id="yearsLived">
+                            0
+                        </span>
+
+                        <small>
+                            YEARS
+                        </small>
+
+                    </div>
+
+
+                    <!-- Months -->
+
+                    <div class="stat">
+
+                        <span id="monthsLived">
+                            0
+                        </span>
+
+                        <small>
+                            MONTHS
+                        </small>
+
+                    </div>
+
+
+                    <!-- Weeks -->
+
+                    <div class="stat">
+
+                        <span id="weeksLived">
+                            0
+                        </span>
+
+                        <small>
+                            WEEKS
+                        </small>
+
+                    </div>
+
+
+                    <!-- Hours -->
+
+                    <div class="stat">
+
+                        <span id="hoursLived">
+                            0
+                        </span>
+
+                        <small>
+                            HOURS
+                        </small>
+
+                    </div>
+
+
+                    <!-- Minutes -->
+
+                    <div class="stat">
+
+                        <span id="minutesLived">
+                            0
+                        </span>
+
+                        <small>
+                            MINUTES
+                        </small>
+
+                    </div>
+
+
+                    <!-- Seconds -->
+
+                    <div class="stat">
+
+                        <span id="secondsLived">
+                            0
+                        </span>
+
+                        <small>
+                            SECONDS
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     DIVIDER
+                     ================================================= -->
+
+                <div class="divider"></div>
+
+
+                <!-- =================================================
+                     LIVE BIRTHDAY COUNTDOWN
+                     ================================================= -->
+
+                <div class="birthday">
+
+                    <p class="result-label">
+                        NEXT BIRTHDAY
+                    </p>
+
+
+                    <div class="birthday-countdown">
+
+                        <!-- Days -->
+
+                        <div class="birthday-unit">
+
+                            <span id="birthdayDays">
+                                0
+                            </span>
+
+                            <small>
+                                DAYS
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="birthday-separator"
+                            aria-hidden="true"
+                        >
+                            :
+                        </div>
+
+
+                        <!-- Hours -->
+
+                        <div class="birthday-unit">
+
+                            <span id="birthdayHours">
+                                00
+                            </span>
+
+                            <small>
+                                HOURS
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="birthday-separator"
+                            aria-hidden="true"
+                        >
+                            :
+                        </div>
+
+
+                        <!-- Minutes -->
+
+                        <div class="birthday-unit">
+
+                            <span id="birthdayMinutes">
+                                00
+                            </span>
+
+                            <small>
+                                MINUTES
+                            </small>
+
+                        </div>
+
+
+                        <div
+                            class="birthday-separator"
+                            aria-hidden="true"
+                        >
+                            :
+                        </div>
+
+
+                        <!-- Seconds -->
+
+                        <div class="birthday-unit">
+
+                            <span id="birthdaySeconds">
+                                00
+                            </span>
+
+                            <small>
+                                SECONDS
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Birthday Message -->
+
+                    <p
+                        id="birthdayMessage"
+                        class="birthday-message"
+                        aria-live="polite"
+                    ></p>
+
+                </div>
+
+
+                <!-- =================================================
+                     ACTION
+                     ================================================= -->
+
+                <div class="result-actions">
+
+                    <button
+                        id="shareBtn"
+                        class="share-button"
+                        type="button"
+                    >
+                        SHARE MY CHRONOS
+                    </button>
+
+                    <button
+                        id="backBtn"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        CALCULATE AGAIN
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         SHARE MY CHRONOS
+         ========================================================= -->
+
+    <div
+        id="shareModal"
+        class="share-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="shareModalTitle"
+        aria-hidden="true"
+    >
+
+        <div class="share-modal__backdrop" data-share-close></div>
+
+        <section class="share-modal__panel" tabindex="-1">
+
+            <header class="share-modal__header">
+
+                <p id="shareModalTitle">SHARE MY CHRONOS</p>
+
+                <button
+                    id="closeShareBtn"
+                    class="share-close"
+                    type="button"
+                    aria-label="Close share dialog"
+                >
+                    ×
+                </button>
+
+            </header>
+
+
+            <!-- Dedicated share-card rendering container -->
+            <div class="share-preview-wrap">
+
+                <article
+                    id="shareCard"
+                    class="share-card"
+                    aria-label="CHRONOS result card preview"
+                >
+
+                    <p class="share-card__brand">CHRONOS</p>
+
+                    <p class="share-card__kicker">YOUR TIME</p>
+
+                    <div class="share-card__days">
+                        <span id="shareDays">0</span>
+                        <small>DAYS</small>
+                    </div>
+
+                    <p id="shareAge" class="share-card__age">
+                        0 YEARS · 0 MONTHS
+                    </p>
+
+                    <div class="share-card__rule"></div>
+
+                    <p class="share-card__label">BORN ON</p>
+
+                    <p id="shareBornOn" class="share-card__born">—</p>
+
+                    <div class="share-card__statistics">
+
+                        <p><span id="shareWeeks">0</span> WEEKS</p>
+                        <p><span id="shareHours">0</span> HOURS</p>
+                        <p><span id="shareMinutes">0</span> MINUTES</p>
+
+                    </div>
+
+                    <div class="share-card__rule"></div>
+
+                    <p class="share-card__label">NEXT BIRTHDAY</p>
+
+                    <p id="shareBirthday" class="share-card__birthday">
+                        0 DAYS · 00 HOURS · 00 MINUTES
+                    </p>
+
+                    <p class="share-card__footer">DISCOVER YOUR TIME</p>
+
+                </article>
+
+            </div>
+
+
+            <div class="share-modal__actions">
+
+                <button
+                    id="downloadShareBtn"
+                    type="button"
+                >
+                    DOWNLOAD
+                </button>
+
+            </div>
+
+            <p id="shareFeedback" class="share-feedback" aria-live="polite"></p>
+
+        </section>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 MIKAEL KALESARAN · CHRONOS</p>
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script src="js/calculations.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
